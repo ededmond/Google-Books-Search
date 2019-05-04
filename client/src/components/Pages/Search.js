@@ -32,7 +32,7 @@ class Search extends React.Component {
     render () {
         return (
             <div>
-            <div className = "row">
+            <div className = "row search">
                 <div className = "col-12">
                 <form onSubmit={this.submit}>
                     <div className="form-group">
@@ -61,6 +61,7 @@ class Search extends React.Component {
                     </form>
                 </div>
             </div>
+            <h1>Results</h1>
             <div className="row results">
                 <div className = "col-12">
                     {this.state.books.map((book,i) => {

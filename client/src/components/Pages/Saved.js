@@ -20,8 +20,9 @@ class Search extends React.Component {
     render () {
         return (
             <div>
+                <h1>Saved Books</h1>
             <div className="row results">
-                <div className = "col-12">
+                <div className = "col-12 ">
                     {this.state.books.map((book,i) => {
                         const {link,authors,description,image,title} = book;
                         return (<BookEntry 
