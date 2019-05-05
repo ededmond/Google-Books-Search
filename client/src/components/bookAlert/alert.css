@@ -1,0 +1,18 @@
+.alert {
+    position:fixed;
+    right: 5px;
+    bottom: 0px;
+    background-color: palegreen;
+    color:darkgreen;
+    border: 2px darkgreen solid;
+}
+
+.shown {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
