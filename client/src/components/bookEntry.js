@@ -9,6 +9,7 @@ class BookEntry extends Component {
     }
 
     componentDidMount = () => {
+        console.log(this.props.match);
         if(this.props.match.path === "/saved") {
             this.setState({
                 saved: true,
