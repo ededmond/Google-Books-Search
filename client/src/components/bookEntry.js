@@ -1,9 +1,20 @@
 import React, {Component} from "react";
+import {withRouter} from 'react-router'
 import API from "../utils/API";
 
 class BookEntry extends Component {
     state = {
-        saved: false
+        saved: false,
+        savePage: false
+    }
+
+    componentDidMount = () => {
+        if(this.props.match.path === "/saved") {
+            this.setState({
+                saved: true,
+                savePage: true
+            })
+        };
     }
 
     listAuthors = authors => {
@@ -16,8 +27,17 @@ class BookEntry extends Component {
 
     saveBook = () => {
         API.saveBook(this.props).then(response => {
-            console.log(response);
             this.setState({saved:true});
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    deleteBook = () => {
+        API.deleteBook(this.props.id).then(response => {
+            this.setState({
+                saved:false
+            });
         }).catch(error => {
             console.log(error);
         })
@@ -25,6 +45,10 @@ class BookEntry extends Component {
 
     render (props) {
         const {title,authors,description,image,link} = this.props;
+        //  if it's not saved but we're on the save page, don't render it
+        if (this.state.savePage && !this.state.saved) {
+            return false;
+        } else
         return (<article className = "book-entry row">
             <div className = "col-9">
                 <h3>{title}</h3>
@@ -33,6 +57,7 @@ class BookEntry extends Component {
             <div className = "col-3">
                 <button onClick={()=>window.location.href=link}>View</button>
                 {!this.state.saved &&<button onClick ={this.saveBook}>Save</button>}
+                {this.state.savePage && <button onClick={this.deleteBook}>Delete</button>}
             </div>
             <div className = 'col-3'>
                 <img src = {image} /> 
@@ -44,4 +69,4 @@ class BookEntry extends Component {
     }
 }
 
-export default BookEntry;
+export default withRouter(BookEntry);

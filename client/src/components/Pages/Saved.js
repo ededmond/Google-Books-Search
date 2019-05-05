@@ -24,10 +24,10 @@ class Search extends React.Component {
             <div className="row results">
                 <div className = "col-12 ">
                     {this.state.books.map((book,i) => {
-                        const {link,authors,description,image,title} = book;
+                        const {link,authors,description,image,title,_id} = book;
                         return (<BookEntry 
                             key = {i}
-                            id = {i}
+                            id = {_id}
                             link = {link}
                             authors = {authors}
                             description = {description}

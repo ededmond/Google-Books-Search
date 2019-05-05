@@ -16,8 +16,13 @@ const getSavedBooks = () => {
     return axios.get("/api/books");
 }
 
+const deleteBook = id => {
+    return axios.delete("/api/books/" + id);
+}
+
 export default {
     searchBooks,
     saveBook,
-    getSavedBooks
+    getSavedBooks,
+    deleteBook
 }
