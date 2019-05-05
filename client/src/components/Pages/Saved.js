@@ -33,7 +33,7 @@ class Search extends React.Component {
                             description = {description}
                             image = {image}
                             title = {title}
-                        
+                            savePage = {true}
                         />)
                     })}
                 </div>
