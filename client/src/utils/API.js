@@ -5,7 +5,7 @@ const GOOGLEAPI = "&AIzaSyBodkJ70r2iKmx0rLJMyWNN9T3_xC3FPR8";
 const searchBooks = (title,author) => {
     const query =BASEGOOGLE + title + "+inauthor:" + author + GOOGLEAPI;
     // console.log(query);
-    return axios.get(BASEGOOGLE + title + "+inauthor:" + author + GOOGLEAPI);
+    return axios.get(query);
 }
 
 const saveBook = book => {

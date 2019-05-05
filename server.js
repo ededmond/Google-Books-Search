@@ -1,10 +1,13 @@
 const express = require("express");
 const path = require("path");
-mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
+const socketPORT = process.env.PORT || 3000;
 const app = express();
 
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,8 +22,15 @@ app.use(routes);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"))
+  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+io.on('connection',function(socket) {
+  console.log('a user connected');
+})
+
+io.listen(socketPORT);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googleBooks", { useNewUrlParser: true })
 
