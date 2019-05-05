@@ -66,13 +66,16 @@ class Search extends React.Component {
                 <div className = "col-12">
                     {this.state.books.map((book,i) => {
                         const info = book.volumeInfo;
+                        //sometimes they don't have image links
+                        const imageLinks = info.imageLinks || {thumbnail:"https://via.placeholder.com/150"}
                         return (<BookEntry 
                             key = {i}
                             id = {i}
                             link = {info.infoLink}
-                            authors = {info.authors}
+                            //sometimes there are no authors
+                            authors = {info.authors|| ["unknown"]}
                             description = {info.description}
-                            image = {info.imageLinks.thumbnail}
+                            image = {imageLinks.thumbnail}
                             title = {info.title}
                         
                         />)
