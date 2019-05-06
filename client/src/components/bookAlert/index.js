@@ -19,7 +19,7 @@ const BookAlert = () => {
         const timer = setTimeout(() => setState({...state,shown:"hidden"}),3000)
         // remove timer if get another book
         return () => {clearTimeout(timer)};
-    },[state.shown])
+    },[state])
 
     return (<div className = {"alert "+state.shown}>
         <p><strong>{state.title}</strong> has been saved to the database</p>
