@@ -69,6 +69,7 @@ class Search extends React.Component {
                         //sometimes they don't have image links
                         const imageLinks = info.imageLinks || {thumbnail:"https://via.placeholder.com/150"}
                         return (<BookEntry 
+                            //  when title changes whole component should rerender and we should get our save button back
                             key = {info.title}
                             id = {i}
                             link = {info.infoLink}
