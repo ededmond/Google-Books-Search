@@ -60,7 +60,7 @@ class BookEntry extends Component {
                 {this.state.savePage && <button onClick={this.deleteBook}>Delete</button>}
             </div>
             <div className = 'col-3'>
-                <img src = {image} /> 
+                <img src = {image} alt ={title + " cover"}/> 
             </div>
             <div className = "col-9">
                 <p>{description}</p>

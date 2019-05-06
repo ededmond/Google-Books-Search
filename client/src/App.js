@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Saved from "./components/Pages/Saved";
 import Search from "./components/Pages/Search";
-
-import logo from "./logo.svg";
+import BookAlert from "./components/bookAlert"
 import "./App.css";
 
+// import io from "../node_modules/socket.io-client/dist/socket.io";
+
+// const socket = io();
 class App extends Component {
+  
   render() {
     return (
       <Router>
@@ -20,6 +23,7 @@ class App extends Component {
             <Route nomatch component ={Search} />
           </Switch>
         </div>
+        <BookAlert />
       </Router>
     );
   }
