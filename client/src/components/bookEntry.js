@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component,useEffect} from "react";
 import {withRouter} from 'react-router'
 import API from "../utils/API";
 
@@ -14,8 +14,18 @@ class BookEntry extends Component {
                 saved: true,
                 savePage: true
             })
-        };
+        } 
     }
+    // brings back save button for new search
+    componentWillReceiveProps = () => {
+        if (!this.props.savePage) {
+            this.setState({
+                saved:false,
+                savePage:false
+            })
+        }
+    }
+    component
 
     listAuthors = authors => {
         let newAuthors = authors[0]
