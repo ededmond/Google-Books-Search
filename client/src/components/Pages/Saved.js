@@ -26,7 +26,7 @@ class Search extends React.Component {
                     {this.state.books.map((book,i) => {
                         const {link,authors,description,image,title,_id} = book;
                         return (<BookEntry 
-                            key = {i}
+                            key = {_id}
                             id = {_id}
                             link = {link}
                             authors = {authors}

@@ -69,7 +69,7 @@ class Search extends React.Component {
                         //sometimes they don't have image links
                         const imageLinks = info.imageLinks || {thumbnail:"https://via.placeholder.com/150"}
                         return (<BookEntry 
-                            key = {i}
+                            key = {info.title}
                             id = {i}
                             link = {info.infoLink}
                             //sometimes there are no authors
